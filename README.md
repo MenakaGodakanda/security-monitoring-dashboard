@@ -125,19 +125,24 @@ sudo systemctl status filebeat
    ```
 
 2. **Start the ELK Stack:**
+
+- Run Docker Compose
    ```bash
    docker-compose up -d
    ```
 
-3. **Generate Test Logs:**
+- Verify Kibana is Running
+      Open your browser and navigate to `http://localhost:5601`
+
+4. **Generate Test Logs:**
    ```bash
    chmod +x generate_logs.sh
    sudo ./generate_logs.sh
    ```
 
-4. **Configure Kibana:**
-   - Navigate to http://localhost:5601
-   - Create index pattern logs-*
+5. **Configure Kibana:**
+   - Navigate to `http://localhost:5601`
+   - Create index pattern `logs-*`
    - Create visualizations and dashboard
 
 ## Directory Structure:
@@ -156,7 +161,7 @@ security-monitoring-dashboard/
 
 ## Usage
 
-- Access Kibana at http://localhost:5601
+- Access Kibana at `http://localhost:5601`
 - View the dashboard to monitor security metrics.
 
 ## License
