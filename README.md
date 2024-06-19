@@ -130,15 +130,28 @@ sudo systemctl status filebeat
    ```bash
    docker-compose up -d
    ```
+<br>
+
+![Screenshot 2024-06-19 124452](https://github.com/MenakaGodakanda/security-monitoring-dashboard/assets/156875412/a8346283-4496-4c5c-be1f-4b82d2d2d45e)
+<br>
 
 - Verify Kibana is Running
       Open your browser and navigate to `http://localhost:5601`
+
+<br>
+
+![Screenshot 2024-06-19 125401](https://github.com/MenakaGodakanda/security-monitoring-dashboard/assets/156875412/91b90d43-11ca-4032-8a7b-88c4bc49594d)
+<br>
 
 4. **Generate Test Logs:**
    ```bash
    chmod +x generate_logs.sh
    sudo ./generate_logs.sh
    ```
+<br>
+
+![Screenshot 2024-06-19 125342](https://github.com/MenakaGodakanda/security-monitoring-dashboard/assets/156875412/035beef8-1fa5-4d2f-b2e1-59419b81545a)
+<br>
 
 5. **Configure Kibana:**
    - Navigate to `http://localhost:5601`
