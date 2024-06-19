@@ -42,6 +42,79 @@ This project demonstrates a web-based security monitoring dashboard using the EL
 - Ubuntu 22.04 LTS
 - Docker and Docker Compose
 - Git
+- Filebeat
+
+## Set Up the Environment
+
+### Install Docker and Docker Compose
+
+#### Installation
+```bash
+sudo apt update
+sudo apt install -y docker.io docker-compose
+sudo systemctl start docker
+sudo systemctl enable docker
+sudo usermod -aG docker $USER
+```
+
+#### Restart the System
+You need to log out and log back in for the changes to take effect. Alternatively, you can use the newgrp command:
+```bash
+newgrp docker
+```
+
+#### Verify Docker Setup
+After logging back in, verify that your user has the correct permissions by running a Docker command without sudo.
+
+Check Docker version:
+
+```bash
+docker --version
+```
+
+Run a simple Docker command:
+
+```bash
+docker run hello-world
+```
+
+#### Additional Checks
+
+If you still encounter issues, ensure that the Docker service is running.
+
+Check Docker service status:
+
+```bash
+sudo systemctl status docker
+```
+
+Start Docker service if it's not running:
+
+```bash
+sudo systemctl start docker
+```
+
+### Download and Install Filebeat
+
+#### Install Filebeat
+```
+curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-7.17.0-amd64.deb
+sudo dpkg -i filebeat-7.17.0-amd64.deb
+sudo cp filebeat.yml /etc/filebeat/filebeat.yml
+```
+
+#### Start Filebeat
+```bash
+sudo systemctl start filebeat
+sudo systemctl enable filebeat
+```
+#### Verify Filebeat is Running
+Ensure Filebeat is properly configured and running to ship the generated logs to Logstash.
+
+```bash
+sudo systemctl restart filebeat
+sudo systemctl status filebeat
+```
 
 ## Setup
 
@@ -89,7 +162,3 @@ security-monitoring-dashboard/
 ## License
 
 This project is licensed under the MIT License.
-
-
-
-   
