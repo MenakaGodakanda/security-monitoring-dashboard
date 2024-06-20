@@ -118,13 +118,13 @@ sudo systemctl status filebeat
 
 ## Setup
 
-1. **Clone the Repository:**
+### Clone the Repository:
    ```bash
    git clone https://github.com/MenakaGodakanda/security-monitoring-dashboard.git
    cd security-monitoring-dashboard
    ```
 
-2. **Start the ELK Stack:**
+### Start the ELK Stack:
 
 - Run Docker Compose
    ```bash
@@ -143,7 +143,9 @@ sudo systemctl status filebeat
 ![Screenshot 2024-06-19 125401](https://github.com/MenakaGodakanda/security-monitoring-dashboard/assets/156875412/91b90d43-11ca-4032-8a7b-88c4bc49594d)
 <br>
 
-4. **Generate Test Logs:**
+### Generate Test Logs:
+The `generate_logs.sh` script will generate log data that simulates intrusion attempts, system vulnerabilities, and malware detections.
+Run the script:
    ```bash
    chmod +x generate_logs.sh
    sudo ./generate_logs.sh
@@ -153,10 +155,64 @@ sudo systemctl status filebeat
 ![Screenshot 2024-06-19 125342](https://github.com/MenakaGodakanda/security-monitoring-dashboard/assets/156875412/035beef8-1fa5-4d2f-b2e1-59419b81545a)
 <br>
 
-5. **Configure Kibana:**
-   - Navigate to `http://localhost:5601`
-   - Create index pattern `logs-*`
-   - Create visualizations and dashboard
+### Ingest Data into the ELK Stack
+Verify Filebeat is Running
+Ensure Filebeat is properly configured and running to ship the generated logs to Logstash.
+```bash
+sudo systemctl restart filebeat
+sudo systemctl status filebeat
+```
+
+### Access Kibana Dashboard:
+
+#### Open Kibana in Your Browser
+- Navigate to `http://localhost:5601`.
+
+#### Create Index Pattern
+- Go to `Management` > `Index Patterns`.
+- Create a new index pattern (e.g., `logs-*`).
+- Configure the index pattern to use the timestamp field.
+
+### Create Visualizations in Kibana
+
+#### Intrusion Attempts Visualization:
+- Go to `Visualize`.
+- Create a new `Vertical Bar` chart.
+- Select `logs-*` as the index pattern.
+- Set `X-Axis` to the `date histogram` of the timestamp field.
+- Set `Y-Axis` to count the number of logs containing "Intrusion attempt detected".
+
+Sample Visualisation:
+
+
+#### System Vulnerabilities Visualization:
+- Create a new `Pie` chart.
+- Select `logs-*` as the index pattern.
+- Set the Slices to the terms of the log message field containing "Vulnerability found".
+
+Sample Visualisation:
+
+
+#### Malware Detections Visualization:
+- Create a new `Line` chart.
+- Select `logs-*` as the index pattern.
+- Set `X-Axis` to the `date histogram` of the timestamp field.
+- Set `Y-Axis` to count the number of logs containing "Malware detected".
+
+Sample Visualisation:
+
+
+### Create and Share Dashboard
+
+#### Create Dashboard:
+- Go to Dashboard in Kibana.
+- Click on `Create new dashboard`.
+- Add the above visualizations to the dashboard.
+- Arrange the visualizations for a comprehensive view of the security metrics.
+
+Sample Dashboard:
+
+
 
 ## Directory Structure:
 
