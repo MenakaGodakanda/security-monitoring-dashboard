@@ -132,16 +132,15 @@ sudo systemctl status filebeat
    ```
 <br>
 
-![Screenshot 2024-06-19 124452](https://github.com/MenakaGodakanda/security-monitoring-dashboard/assets/156875412/a8346283-4496-4c5c-be1f-4b82d2d2d45e)
-<br>
+  ![Screenshot 2024-06-19 124452](https://github.com/MenakaGodakanda/security-monitoring-dashboard/assets/156875412/a8346283-4496-4c5c-be1f-4b82d2d2d45e)
+<br><br>
 
 - Verify Kibana is Running
       Open your browser and navigate to `http://localhost:5601`
-
 <br>
 
-![Screenshot 2024-06-19 125401](https://github.com/MenakaGodakanda/security-monitoring-dashboard/assets/156875412/91b90d43-11ca-4032-8a7b-88c4bc49594d)
-<br>
+  ![Screenshot 2024-06-19 125401](https://github.com/MenakaGodakanda/security-monitoring-dashboard/assets/156875412/91b90d43-11ca-4032-8a7b-88c4bc49594d)
+<br><br>
 
 ### Generate Test Logs:
 The `generate_logs.sh` script will generate log data that simulates intrusion attempts, system vulnerabilities, and malware detections.
@@ -152,7 +151,7 @@ Run the script:
    ```
 <br>
 
-![Screenshot 2024-06-19 125342](https://github.com/MenakaGodakanda/security-monitoring-dashboard/assets/156875412/035beef8-1fa5-4d2f-b2e1-59419b81545a)
+  ![Screenshot 2024-06-19 125342](https://github.com/MenakaGodakanda/security-monitoring-dashboard/assets/156875412/035beef8-1fa5-4d2f-b2e1-59419b81545a)
 <br>
 
 ### Ingest Data into the ELK Stack
@@ -181,16 +180,20 @@ sudo systemctl status filebeat
 - Select `logs-*` as the index pattern.
 - Set `X-Axis` to the `date histogram` of the timestamp field.
 - Set `Y-Axis` to count the number of logs containing "Intrusion attempt detected".
+- Save the visualisation as `Intrusion Attempts Over Time`.
 
-Sample Visualisation:
+Sample Visualisation:<br>
+![Screenshot 2024-06-19 132455](https://github.com/MenakaGodakanda/security-monitoring-dashboard/assets/156875412/178810b8-81ed-4148-85f3-5f2acbc93411)
 
 
 #### System Vulnerabilities Visualization:
 - Create a new `Pie` chart.
 - Select `logs-*` as the index pattern.
 - Set the Slices to the terms of the log message field containing "Vulnerability found".
+- Save the visualisation as `System Vulnerabilities Distribution`.
 
-Sample Visualisation:
+Sample Visualisation:<br>
+![Screenshot 2024-06-19 140853](https://github.com/MenakaGodakanda/security-monitoring-dashboard/assets/156875412/21b7aae0-46ea-487f-9142-ac0aba001578)
 
 
 #### Malware Detections Visualization:
@@ -198,8 +201,10 @@ Sample Visualisation:
 - Select `logs-*` as the index pattern.
 - Set `X-Axis` to the `date histogram` of the timestamp field.
 - Set `Y-Axis` to count the number of logs containing "Malware detected".
+- Save the visualisation as `Malware Detections Over Time`.
 
-Sample Visualisation:
+Sample Visualisation:<br>
+![Screenshot 2024-06-19 140847](https://github.com/MenakaGodakanda/security-monitoring-dashboard/assets/156875412/c1804655-e872-4efb-8f83-b26e0f877657)
 
 
 ### Create and Share Dashboard
@@ -209,8 +214,10 @@ Sample Visualisation:
 - Click on `Create new dashboard`.
 - Add the above visualizations to the dashboard.
 - Arrange the visualizations for a comprehensive view of the security metrics.
+- Save the dashboard as `Security Monitoring Dashboard`.
 
-Sample Dashboard:
+Sample Dashboard:<br>
+![Screenshot 2024-06-19 140847 - Copy](https://github.com/MenakaGodakanda/security-monitoring-dashboard/assets/156875412/1848e60c-c506-48fa-badc-2357814b2e2a)
 
 
 
