@@ -1,7 +1,6 @@
 # Security Monitoring Dashboard
 
-This project demonstrates a web-based security monitoring dashboard using the ELK stack (Elasticsearch, Logstash, Kibana). The dashboard visualizes security metrics such as intrusion attempts, system vulnerabilities, and malware detections.
-
+This project demonstrates a web-based security monitoring dashboard using the ELK stack (Elasticsearch, Logstash, Kibana). The dashboard visualizes security metrics such as intrusion attempts, system vulnerabilities, and malware detections.<br>
 <a href="https://github.com/MenakaGodakanda/security-monitoring-dashboard/blob/main/Project_Description.md">Project Description</a>
 
 ## Overview
